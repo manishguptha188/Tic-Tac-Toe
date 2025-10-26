@@ -1,20 +1,39 @@
-export default function App() {
+import { useState } from "react";
+
+
+function Square() {
+    const [value, setvalue] = useState(null);
+    function handleClick(){
+        setvalue('X');
+    }
+    return(
+        <button onClick={handleClick} className="square">{value}</button>
+    )
+}
+
+
+
+
+export default function Board() {
+    const [squares, setSquares ] = useState(Array(9).fill(null));
+    
+    
     return (<>
      <div className="board-row">
-        <button>X</button>
-        <button>X</button>
-        <button>X</button>
+        <Square value={squares(1)} />
+        <Square value={squares(2)} />
+        <Square value={squares(3)}/>
      </div>
      <div className="board-row">
-        <button>X</button>
-        <button>X</button>
-        <button>X</button>
+        <Square value={squares(4)} />
+        <Square value={squares(5)}/>
+        <Square value={squares(6)}/>
      </div>
 
      <div className="board-row">
-        <button>X</button>
-        <button>X</button>
-        <button>X</button>
+        <Square value={squares(7)}/>
+        <Square value={squares(8)}/>
+        <Square value={squares(9)}/>
      </div>
         </>
     );
